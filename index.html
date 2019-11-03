@@ -91,11 +91,12 @@
                   onchange="changeColor('box','bg',this.name,this.color);"
                   type="text">
                 <!--鼠鬚管沒有邊框--> </fieldset>
-              <fieldset> <legend>組字區域</legend> <span>文字</span><input class="color {pickerPosition:'left'}"
+              <fieldset> <legend>組字區域</legend> <!--鼠鬚管似乎也不適用於這項設定。若發現有用，再恢復。<span>文字</span><input
+                  class="color {pickerPosition:'left'}"
                   name="text"
                   value="000000"
                   onchange="changeColor('text','c',this.name,this.color);"
-                  type="text"><br>
+                  type="text">--><br>
                 <span>編碼</span><input class="color {pickerPosition:'left'}"
                   name="hilited_text"
                   value="000000"
