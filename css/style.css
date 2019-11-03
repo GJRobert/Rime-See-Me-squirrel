@@ -22,7 +22,8 @@ padding: 20px 20px 20px 10px;width:300px;
 	font-size: 18px;
 	font-family:'Microsoft YaHei';
 	width: 160px;
-	padding: 10px 0 10px 10px;}
+	padding: 10px 0 10px 10px;
+	border-radius: 5px;}
 
 #select{
 	margin-bottom: 10px;}
