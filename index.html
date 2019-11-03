@@ -121,7 +121,12 @@
                   name="hilited_candidate_label"
                   value="FFFFFF"
                   onchange="changeColor('label1','c',this.name,this.color);"
-                  type="text"> </fieldset>
+                  type="text"> <br>
+                <span>提示</span><input class="color {pickerPosition:'left'}"
+                  name="hilited_comment_text"
+                  value="FFFFFF"
+                  onchange="changeColor('code1','c',this.name,this.color);"
+                  type="text"></fieldset>
               <fieldset> <legend>其他候選項</legend> <span>文字</span><input
                   class="color {pickerPosition:'left'}"
                   name="candidate_text"
@@ -136,7 +141,7 @@
                 <span>提示</span><input class="color {pickerPosition:'left'}"
                   name="comment_text"
                   value="DDDDDD"
-                  onchange="for(i=1;i<=9;i++) document.getElementById('code'+i).style.color = '#'+this.color;exConvert(this.name,this.color);"
+                  onchange="for(i=2;i<=9;i++) document.getElementById('code'+i).style.color = '#'+this.color;exConvert(this.name,this.color);"
                   type="text"> </fieldset>
             </form>
           </td>
@@ -157,6 +162,8 @@
                   id="hilited_candidate_back_color">FFFFFF</span></div>
               <div>&nbsp;&nbsp;hilited_candidate_label_color:&nbsp;0x<span
                   id="hilited_candidate_label_color">FFFFFF</span></div>
+              <div>&nbsp;&nbsp;hilited_comment_text_color:&nbsp;0x<span
+                  id="hilited_comment_text_color">FFFFFF</span></div>
               <div>&nbsp;&nbsp;candidate_text_color:&nbsp;0x<span id="candidate_text_color">FFFFFF</span></div>
               <div>&nbsp;&nbsp;label_color:&nbsp;0x<span id="label_color">FFFFFF</span></div>
               <div>&nbsp;&nbsp;comment_text_color:&nbsp;0x<span id="comment_text_color">FFFFFF</span></div>
