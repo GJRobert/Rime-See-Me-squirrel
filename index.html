@@ -12,7 +12,7 @@
     <table>
       <tbody>
         <tr>
-          <td id="effect"> 
+          <td id="effect">
             <div id="box">
               <div id="select">
                 <!--<span id="text">小狼毫</span>--> <span id="hilited">pei se</span> &gt; </div>
@@ -40,7 +40,7 @@
           </td>
           <td id="style_setting">
             <form>
-              <fieldset> <legend>基本信息</legend> <span>代<span class="em"></span>號</span><input
+              <fieldset> <legend>基本資訊</legend> <span>代<span class="em"></span>號</span><input
                   name="schema"
                   value="example"
                   onchange="writeIn(this.name,this.value);"
@@ -88,12 +88,8 @@
                   name="back"
                   value="FFFFFF"
                   onchange="changeColor('box','bg',this.name,this.color);"
-                  type="text"><br>
-                <span>邊框</span><input class="color {pickerPosition:'left'}"
-                  name="border"
-                  value="000000"
-                  onchange="changeColor('box','bd',this.name,this.color);"
-                  type="text"> </fieldset>
+                  type="text">
+                <!--鼠鬚管沒有邊框--> </fieldset>
               <fieldset> <legend>內選區域</legend> <span>文字</span><input class="color {pickerPosition:'left'}"
                   name="text"
                   value="000000"
@@ -120,7 +116,7 @@
                   value="000000"
                   onchange="changeColor('n1','bg',this.name,this.color);"
                   type="text"> </fieldset>
-              <fieldset> <legend>其它候選項</legend> <span>文字</span><input
+              <fieldset> <legend>其他候選項</legend> <span>文字</span><input
                   class="color {pickerPosition:'left'}"
                   name="candidate_text"
                   value="000000"
@@ -134,14 +130,13 @@
             </form>
           </td>
           <td id="code_generate">
-            <h2>生成代碼</h2>
+            <h2>產生設定碼</h2>
             <div id="source_code">
               <div id="schema">example</div>
               <span>:</span><br>
               <div>&nbsp;&nbsp;name:&nbsp;<span id="name">名字</span></div>
               <div>&nbsp;&nbsp;author:&nbsp;<span id="author">作者</span></div>
               <div>&nbsp;&nbsp;back_color:&nbsp;0x<span id="back_color">FFFFFF</span></div>
-              <div>&nbsp;&nbsp;border_color:&nbsp;0x<span id="border_color">000000</span></div>
               <div>&nbsp;&nbsp;text_color:&nbsp;0x<span id="text_color">FFFFFF</span></div>
               <div>&nbsp;&nbsp;hilited_text_color:&nbsp;0x<span id="hilited_text_color">FFFFFF</span></div>
               <div>&nbsp;&nbsp;hilited_back_color:&nbsp;0x<span id="hilited_back_color">DDDDDD</span></div>
