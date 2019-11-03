@@ -54,7 +54,7 @@
                   onchange="writeIn(this.name,this.value);"
                   type="text"><br>
               </fieldset>
-              <fieldset> <legend>其他設置</legend> <span>候選數</span> <input
+              <fieldset> <legend>其他設定</legend> <span>候選數</span> <input
                   value="9"
                   min="1"
                   max="9"
@@ -62,7 +62,7 @@
                   onchange="changeNumber(this.value)"
                   type="range"><br>
               </fieldset>
-              <fieldset> <legend>顯示背景</legend> <span>背景色</span><input
+              <fieldset> <legend>環境參考背景</legend> <span>背景色</span><input
                   id="background"
                   class="color"
                   name="body"
@@ -84,13 +84,14 @@
           </td>
           <td id="color_setting">
             <form>
-              <fieldset> <legend>背景設置</legend> <span>背景</span><input class="color {pickerPosition:'left'}"
+              <fieldset> <legend>小視窗設定</legend> <span>背景</span><input
+                  class="color {pickerPosition:'left'}"
                   name="back"
                   value="FFFFFF"
                   onchange="changeColor('box','bg',this.name,this.color);"
                   type="text">
                 <!--鼠鬚管沒有邊框--> </fieldset>
-              <fieldset> <legend>內選區域</legend> <span>文字</span><input class="color {pickerPosition:'left'}"
+              <fieldset> <legend>組字區域</legend> <span>文字</span><input class="color {pickerPosition:'left'}"
                   name="text"
                   value="000000"
                   onchange="changeColor('text','c',this.name,this.color);"
@@ -105,7 +106,7 @@
                   value="DDDDDD"
                   onchange="changeColor('hilited','bg',this.name,this.color);"
                   type="text"> </fieldset>
-              <fieldset> <legend>激活候選項</legend> <span>文字</span><input
+              <fieldset> <legend>選定候選項</legend> <span>文字</span><input
                   class="color {pickerPosition:'left'}"
                   name="hilited_candidate_text"
                   value="FFFFFF"
