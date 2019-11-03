@@ -1,109 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Rime西米</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css"/>
-	<script src="jscolor/jscolor.js"></script>
-	<script src="js/script.js"></script>
-</head>
-<body>
-	<h1><span>RIME</span><ruby>西<rt>See</rt></ruby><ruby>米<rt>Me</rt></ruby></h1>
-	<table>
-	<tr>
-	<td id="effect">
-	<div id="box">
-		<div id="select">
-			<span id="text">小狼毫</span>
-			<span id="hilited">pei se</span>
-			>
-		</div>
-		<div id="display">
-			<div id="n1"><span id="label">1.</span><span id="word">配色</span><span id="code1">(pei se)</span></div>
-			<div id="n2"><span id="label">2.</span><span id="word">陪</span><span id="code2">(pei)</span></div>
-			<div id="n3"><span id="label">3.</span><span id="word">配</span><span id="code3">(pei)</span></div>
-			<div id="n4"><span id="label">4.</span><span id="word">賠</span><span id="code4">(pei)</span></div>
-			<div id="n5"><span id="label">5.</span><span id="word">培</span><span id="code5">(pei)</span></div>
-			<div id="n6"><span id="label">6.</span><span id="word">佩</span><span id="code6">(pei)</span></div>
-			<div id="n7"><span id="label">7.</span><span id="word">裴</span><span id="code7">(pei)</span></div>
-			<div id="n8"><span id="label">8.</span><span id="word">斐</span><span id="code8">(pei)</span></div>
-			<div id="n9"><span id="label">9.</span><span id="word">呸</span><span id="code9">(pei)</span></div>
-		</div>
-	</div>
-	</td>
-
-	<td id="style_setting">
-	<form>
-		<fieldset>
-		<legend>基本信息</legend>
-		<span>代<span class="em"></span>號</span><input type="text" name="schema" value="example" onchange="writeIn(this.name,this.value);"><br />
-		<span>名<span class="em"></span>稱</span><input type="text" name="name" value="名字" onchange="writeIn(this.name,this.value);"><br />
-		<span>作<span class="em"></span>者</span><input type="text" name="author" value="作者" onchange="writeIn(this.name,this.value);"><br />
-		</fieldset>
-
-		<fieldset>
-		<legend>其他設置</legend>
-		<span>候選數</span>	<input type="range" value="9" min="1" max="9" name="number" onchange="changeNumber(this.value)"><br />
-		</fieldset>
-		<fieldset>
-		<legend>顯示背景</legend>
-		<span>背景色</span><input type="text" id="background" class="color" name="body" value="F9F9F9" onchange="document.getElementById('effect').style.backgroundColor = '#'+this.color">
-		</fieldset>
-		<fieldset id="modEx">
-		<legend>BGR <> RGB</legend>
-		<span>BGR</span><input type="text" id="bgr" value="77DDBB" onchange="exMode('bgr','rgb',this.value);"><br />
-		<span>RGB</span><input class="color  {pickerPosition:'right'}" type="text" id="rgb" value="BBDD77" onchange="exMode('rgb','bgr',this.value);"><br />
-		</fieldset>
-	</form>
-	</td>
-
-	<td	id="color_setting">
-	<form>
-		<fieldset>
-		<legend>背景設置</legend>
-		<span>背景</span><input type="text" class="color {pickerPosition:'left'}" name="back" value="FFFFFF" onchange="changeColor('box','bg',this.name,this.color);"><br />
-		<span>邊框</span><input type="text" class="color {pickerPosition:'left'}" name="border" value="000000" onchange="changeColor('box','bd',this.name,this.color);">
-		</fieldset>
-
-		<fieldset>
-		<legend>內選區域</legend>
-		<span>文字</span><input type="text" class="color {pickerPosition:'left'}" name="text"  value="000000" onchange="changeColor('text','c',this.name,this.color);"><br />
-		<span>編碼</span><input type="text" class="color {pickerPosition:'left'}" name="hilited_text"  value="000000" onchange="changeColor('hilited','c',this.name,this.color);"><br />
-		<span>背景</span><input type="text" class="color {pickerPosition:'left'}" name="hilited_back"  value="DDDDDD" onchange="changeColor('hilited','bg',this.name,this.color);">
-		</fieldset>
-
-		<fieldset>
-		<legend>激活候選項</legend>
-		<span>文字</span><input type="text" class="color {pickerPosition:'left'}" name="hilited_candidate_text"  value="FFFFFF" onchange="changeColor('n1','c',this.name,this.color);"><br />
-		<span>背景</span><input type="text" class="color {pickerPosition:'left'}" name="hilited_candidate_back"  value="000000" onchange="changeColor('n1','bg',this.name,this.color);">
-		</fieldset>
-		<fieldset>
-		<legend>其它候選項</legend>
-		<span>文字</span><input type="text" class="color {pickerPosition:'left'}" name="candidate_text"  value="000000" onchange="for(i=2;i<=9;i++) document.getElementById('n'+i).style.color = '#'+this.color;exConvert(this.name,this.color);"><br />
-		<span>提示</span><input type="text" class="color {pickerPosition:'left'}" name="comment_text"  value="DDDDDD" onchange="for(i=1;i<=9;i++) document.getElementById('code'+i).style.color = '#'+this.color;exConvert(this.name,this.color);">
-		</fieldset>
-	</form>
-
-	</td>
-	<td id="code_generate">
-	<h2>生成代碼</h2>
-	<div id="source_code">
-	<div id="schema">example</div><span>:</span><br />
-    <div>&nbsp;&nbsp;name:&nbsp;<span id="name">名字</span></div>
-    <div>&nbsp;&nbsp;author:&nbsp;<span id="author">作者</span></div>
-    <div>&nbsp;&nbsp;back_color:&nbsp;0x<span id="back_color">FFFFFF</span></div>
-    <div>&nbsp;&nbsp;border_color:&nbsp;0x<span id="border_color">000000</span></div>
-    <div>&nbsp;&nbsp;text_color:&nbsp;0x<span id="text_color">FFFFFF</span></div>
-    <div>&nbsp;&nbsp;hilited_text_color:&nbsp;0x<span id="hilited_text_color">FFFFFF</span></div>
-    <div>&nbsp;&nbsp;hilited_back_color:&nbsp;0x<span id="hilited_back_color">DDDDDD</span></div>
-    <div>&nbsp;&nbsp;hilited_candidate_text_color:&nbsp;0x<span id="hilited_candidate_text_color">000000</span></div>
-    <div>&nbsp;&nbsp;hilited_candidate_back_color:&nbsp;0x<span id="hilited_candidate_back_color">FFFFFF</span></div>
-    <div>&nbsp;&nbsp;candidate_text_color:&nbsp;0x<span id="candidate_text_color">FFFFFF</span></div>
-	<div>&nbsp;&nbsp;comment_text_color:&nbsp;0x<span id="comment_text_color">FFFFFF</span></div>
-	</div>
-	</td>
-	</tr>
-	</table>
-	<div>請用Chrome內核瀏覽器</div>
-</body>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Rime西米</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="jscolor/jscolor.js"></script>
+    <script src="js/script.js"></script>
+  </head>
+  <body>
+    <h1><span>RIME</span><ruby>西<rt>See</rt></ruby><ruby>米<rt>Me</rt></ruby></h1>
+    <table>
+      <tbody>
+        <tr>
+          <td id="effect">
+            <div id="box">
+              <div id="select"> <span id="text">小狼毫</span> <span id="hilited">pei se</span> &gt; </div>
+              <div id="display">
+                <div id="n1"><span id="label">1.</span><span id="word">配色</span><span
+                    id="code1">(pei se)</span></div>
+                <div id="n2"><span id="label">2.</span><span id="word">陪</span><span
+                    id="code2">(pei)</span></div>
+                <div id="n3"><span id="label">3.</span><span id="word">配</span><span
+                    id="code3">(pei)</span></div>
+                <div id="n4"><span id="label">4.</span><span id="word">賠</span><span
+                    id="code4">(pei)</span></div>
+                <div id="n5"><span id="label">5.</span><span id="word">培</span><span
+                    id="code5">(pei)</span></div>
+                <div id="n6"><span id="label">6.</span><span id="word">佩</span><span
+                    id="code6">(pei)</span></div>
+                <div id="n7"><span id="label">7.</span><span id="word">裴</span><span
+                    id="code7">(pei)</span></div>
+                <div id="n8"><span id="label">8.</span><span id="word">斐</span><span
+                    id="code8">(pei)</span></div>
+                <div id="n9"><span id="label">9.</span><span id="word">呸</span><span
+                    id="code9">(pei)</span></div>
+              </div>
+            </div>
+          </td>
+          <td id="style_setting">
+            <form>
+              <fieldset> <legend>基本信息</legend> <span>代<span class="em"></span>號</span><input
+                  name="schema"
+                  value="example"
+                  onchange="writeIn(this.name,this.value);"
+                  type="text"><br>
+                <span>名<span class="em"></span>稱</span><input name="name"
+                  value="名字"
+                  onchange="writeIn(this.name,this.value);"
+                  type="text"><br>
+                <span>作<span class="em"></span>者</span><input name="author"
+                  value="作者"
+                  onchange="writeIn(this.name,this.value);"
+                  type="text"><br>
+              </fieldset>
+              <fieldset> <legend>其他設置</legend> <span>候選數</span> <input
+                  value="9"
+                  min="1"
+                  max="9"
+                  name="number"
+                  onchange="changeNumber(this.value)"
+                  type="range"><br>
+              </fieldset>
+              <fieldset> <legend>顯示背景</legend> <span>背景色</span><input
+                  id="background"
+                  class="color"
+                  name="body"
+                  value="F9F9F9"
+                  onchange="document.getElementById('effect').style.backgroundColor = '#'+this.color"
+                  type="text"> </fieldset>
+              <fieldset id="modEx"> <legend>BGR &lt;&gt; RGB</legend> <span>BGR</span><input
+                  id="bgr"
+                  value="77DDBB"
+                  onchange="exMode('bgr','rgb',this.value);"
+                  type="text"><br>
+                <span>RGB</span><input class="color  {pickerPosition:'right'}"
+                  id="rgb"
+                  value="BBDD77"
+                  onchange="exMode('rgb','bgr',this.value);"
+                  type="text"><br>
+              </fieldset>
+            </form>
+          </td>
+          <td id="color_setting">
+            <form>
+              <fieldset> <legend>背景設置</legend> <span>背景</span><input class="color {pickerPosition:'left'}"
+                  name="back"
+                  value="FFFFFF"
+                  onchange="changeColor('box','bg',this.name,this.color);"
+                  type="text"><br>
+                <span>邊框</span><input class="color {pickerPosition:'left'}"
+                  name="border"
+                  value="000000"
+                  onchange="changeColor('box','bd',this.name,this.color);"
+                  type="text"> </fieldset>
+              <fieldset> <legend>內選區域</legend> <span>文字</span><input class="color {pickerPosition:'left'}"
+                  name="text"
+                  value="000000"
+                  onchange="changeColor('text','c',this.name,this.color);"
+                  type="text"><br>
+                <span>編碼</span><input class="color {pickerPosition:'left'}"
+                  name="hilited_text"
+                  value="000000"
+                  onchange="changeColor('hilited','c',this.name,this.color);"
+                  type="text"><br>
+                <span>背景</span><input class="color {pickerPosition:'left'}"
+                  name="hilited_back"
+                  value="DDDDDD"
+                  onchange="changeColor('hilited','bg',this.name,this.color);"
+                  type="text"> </fieldset>
+              <fieldset> <legend>激活候選項</legend> <span>文字</span><input
+                  class="color {pickerPosition:'left'}"
+                  name="hilited_candidate_text"
+                  value="FFFFFF"
+                  onchange="changeColor('n1','c',this.name,this.color);"
+                  type="text"><br>
+                <span>背景</span><input class="color {pickerPosition:'left'}"
+                  name="hilited_candidate_back"
+                  value="000000"
+                  onchange="changeColor('n1','bg',this.name,this.color);"
+                  type="text"> </fieldset>
+              <fieldset> <legend>其它候選項</legend> <span>文字</span><input
+                  class="color {pickerPosition:'left'}"
+                  name="candidate_text"
+                  value="000000"
+                  onchange="for(i=2;i<=9;i++) document.getElementById('n'+i).style.color = '#'+this.color;exConvert(this.name,this.color);"
+                  type="text"><br>
+                <span>提示</span><input class="color {pickerPosition:'left'}"
+                  name="comment_text"
+                  value="DDDDDD"
+                  onchange="for(i=1;i<=9;i++) document.getElementById('code'+i).style.color = '#'+this.color;exConvert(this.name,this.color);"
+                  type="text"> </fieldset>
+            </form>
+          </td>
+          <td id="code_generate">
+            <h2>生成代碼</h2>
+            <div id="source_code">
+              <div id="schema">example</div>
+              <span>:</span><br>
+              <div>&nbsp;&nbsp;name:&nbsp;<span id="name">名字</span></div>
+              <div>&nbsp;&nbsp;author:&nbsp;<span id="author">作者</span></div>
+              <div>&nbsp;&nbsp;back_color:&nbsp;0x<span id="back_color">FFFFFF</span></div>
+              <div>&nbsp;&nbsp;border_color:&nbsp;0x<span id="border_color">000000</span></div>
+              <div>&nbsp;&nbsp;text_color:&nbsp;0x<span id="text_color">FFFFFF</span></div>
+              <div>&nbsp;&nbsp;hilited_text_color:&nbsp;0x<span id="hilited_text_color">FFFFFF</span></div>
+              <div>&nbsp;&nbsp;hilited_back_color:&nbsp;0x<span id="hilited_back_color">DDDDDD</span></div>
+              <div>&nbsp;&nbsp;hilited_candidate_text_color:&nbsp;0x<span
+                  id="hilited_candidate_text_color">000000</span></div>
+              <div>&nbsp;&nbsp;hilited_candidate_back_color:&nbsp;0x<span
+                  id="hilited_candidate_back_color">FFFFFF</span></div>
+              <div>&nbsp;&nbsp;candidate_text_color:&nbsp;0x<span id="candidate_text_color">FFFFFF</span></div>
+              <div>&nbsp;&nbsp;comment_text_color:&nbsp;0x<span id="comment_text_color">FFFFFF</span></div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div>請用Chrome內核瀏覽器</div>
+  </body>
 </html>
