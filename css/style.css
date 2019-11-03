@@ -39,7 +39,7 @@ padding: 20px 20px 20px 10px;width:300px;
 	margin: 4px 0 4px 0px;}
 #display div:last-child{
 	margin-bottom:0px;}
-#label{
+[id=*"label"]{
 	margin-right: 5px;}
 
 #n1{

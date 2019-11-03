@@ -17,23 +17,23 @@
               <div id="select">
                 <!--<span id="text">小狼毫</span>--> <span id="hilited">pei se</span> &gt; </div>
               <div id="display">
-                <div id="n1"><span id="label">1.</span><span id="word">配色</span><span
+                <div id="n1"><span id="label1">1.</span><span id="word">配色</span><span
                     id="code1">(pei se)</span></div>
-                <div id="n2"><span id="label">2.</span><span id="word">陪</span><span
+                <div id="n2"><span id="label2">2.</span><span id="word">陪</span><span
                     id="code2">(pei)</span></div>
-                <div id="n3"><span id="label">3.</span><span id="word">配</span><span
+                <div id="n3"><span id="label3">3.</span><span id="word">配</span><span
                     id="code3">(pei)</span></div>
-                <div id="n4"><span id="label">4.</span><span id="word">賠</span><span
+                <div id="n4"><span id="label4">4.</span><span id="word">賠</span><span
                     id="code4">(pei)</span></div>
-                <div id="n5"><span id="label">5.</span><span id="word">培</span><span
+                <div id="n5"><span id="label5">5.</span><span id="word">培</span><span
                     id="code5">(pei)</span></div>
-                <div id="n6"><span id="label">6.</span><span id="word">佩</span><span
+                <div id="n6"><span id="label6">6.</span><span id="word">佩</span><span
                     id="code6">(pei)</span></div>
-                <div id="n7"><span id="label">7.</span><span id="word">裴</span><span
+                <div id="n7"><span id="label7">7.</span><span id="word">裴</span><span
                     id="code7">(pei)</span></div>
-                <div id="n8"><span id="label">8.</span><span id="word">斐</span><span
+                <div id="n8"><span id="label8">8.</span><span id="word">斐</span><span
                     id="code8">(pei)</span></div>
-                <div id="n9"><span id="label">9.</span><span id="word">呸</span><span
+                <div id="n9"><span id="label9">9.</span><span id="word">呸</span><span
                     id="code9">(pei)</span></div>
               </div>
             </div>
@@ -115,6 +115,11 @@
                   name="hilited_candidate_back"
                   value="000000"
                   onchange="changeColor('n1','bg',this.name,this.color);"
+                  type="text"><br>
+                <span>序號</span><input class="color {pickerPosition:'left'}"
+                  name="hilited_candidate_label"
+                  value="FFFFFF"
+                  onchange="changeColor('label1','c',this.name,this.color);"
                   type="text"> </fieldset>
               <fieldset> <legend>其他候選項</legend> <span>文字</span><input
                   class="color {pickerPosition:'left'}"
@@ -122,6 +127,11 @@
                   value="000000"
                   onchange="for(i=2;i<=9;i++) document.getElementById('n'+i).style.color = '#'+this.color;exConvert(this.name,this.color);"
                   type="text"><br>
+                <span>序號</span><input class="color {pickerPosition:'left'}"
+                  name="label"
+                  value="000000"
+                  onchange="for(i=2;i<=9;i++) document.getElementById('label'+i).style.color = '#'+this.color;exConvert(this.name,this.color);"
+                  type="text"> <br>
                 <span>提示</span><input class="color {pickerPosition:'left'}"
                   name="comment_text"
                   value="DDDDDD"
@@ -144,7 +154,10 @@
                   id="hilited_candidate_text_color">000000</span></div>
               <div>&nbsp;&nbsp;hilited_candidate_back_color:&nbsp;0x<span
                   id="hilited_candidate_back_color">FFFFFF</span></div>
+              <div>&nbsp;&nbsp;hilited_candidate_label_color:&nbsp;0x<span
+                  id="hilited_candidate_label_color">FFFFFF</span></div>
               <div>&nbsp;&nbsp;candidate_text_color:&nbsp;0x<span id="candidate_text_color">FFFFFF</span></div>
+              <div>&nbsp;&nbsp;label_color:&nbsp;0x<span id="label_color">FFFFFF</span></div>
               <div>&nbsp;&nbsp;comment_text_color:&nbsp;0x<span id="comment_text_color">FFFFFF</span></div>
             </div>
           </td>
