@@ -43,7 +43,7 @@
               <fieldset> <legend>基本資訊</legend> <span>代<span class="em"></span>號</span><input
                   name="schema"
                   value="example"
-                  onchange="writeIn(this.name,this.value);"
+                  onchange="writeIn(this.name,this.value+':');"
                   type="text"><br>
                 <span>名<span class="em"></span>稱</span><input name="name"
                   value="名字"
@@ -148,8 +148,7 @@
           <td id="code_generate">
             <h2>產生設定碼</h2>
             <div id="source_code">
-              <div id="schema">example</div>
-              <span>:</span><br>
+              <div id="schema">example:</div>
               <div>&nbsp;&nbsp;name:&nbsp;<span id="name">名字</span></div>
               <div>&nbsp;&nbsp;author:&nbsp;<span id="author">作者</span></div>
               <div>&nbsp;&nbsp;back_color:&nbsp;0x<span id="back_color"></span></div>
