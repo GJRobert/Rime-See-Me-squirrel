@@ -197,7 +197,9 @@
 //    output.push(e.target.result);
        output = jsyaml.safeLoad(e.target.result);
 //          document.getElementById('list').innerHTML = '<ul>' + output + '</ul>';
-      console.table(output);
+      console.dir(output);
+      var scheme = output[Object.keys(output)[0]];
+console.log(scheme.name);
     }
     reader.readAsText(f);
 
