@@ -4,8 +4,10 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>Rime 西米 for Squirrel</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/3.13.1/js-yaml.min.js"></script>
     <script src="jscolor/jscolor.js"></script>
     <script src="js/script.js"></script>
+    <script type="application/x-javascript" src="js/rw.js"></script>
   </head>
   <body>
     <h1><span>RIME</span> <ruby>西<rt>See</rt></ruby><ruby>米<rt>Me</rt></ruby> - for <ruby>Squirrel<rt>鼠鬚管</rt></ruby></h1>
@@ -174,5 +176,32 @@
     <div>支援瀏覽器：Chrome 內核（Chrome、Vivaldi、……）或 Firefox 68、Waterfox 56 等（其餘瀏覽器可能也可正常運作，<a
         href="https://github.com/GJRobert/Rime-See-Me-squirrel/issues/1"
         target="_blank">歡迎回報</a>）</div>
+    <!--工作區--> <input id="files" name="files[]" multiple="" type="file">
+    <output id="list"></output>
+    <script>
+  function handleFileSelect(evt) {
+    var files = evt.target.files; // FileList object
+
+    // files is a FileList of File objects. List some properties.
+    var output = [];
+    // for (var i = 0, f; f = files[i]; i++) {
+    //  output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+    //              f.size, ' bytes, last modified: ',
+    //              f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+    //              '</li>');
+    //}
+    var f = files[0];
+    var reader = new FileReader();
+    reader.onload = function (e) {
+//    output.push(e.target.result);
+       output = e.target.result;
+          document.getElementById('list').innerHTML = '<ul>' + output + '</ul>';
+    }
+    reader.readAsText(f);
+
+  }
+
+  document.getElementById('files').addEventListener('change', handleFileSelect, false);
+</script>
   </body>
 </html>
