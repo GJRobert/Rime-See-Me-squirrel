@@ -197,14 +197,25 @@
 //    output.push(e.target.result);
        output = jsyaml.safeLoad(e.target.result);
 //          document.getElementById('list').innerHTML = '<ul>' + output + '</ul>';
-      console.dir(output);
+//      console.dir(output);
       var scheme = output[Object.keys(output)[0]];
 console.log(scheme.name);
-      var back_color = scheme.back_color;
-      	a=back_color.replace("0x","");
+//      var back_color = scheme.back_color;
+      var result = "";
+      for (var prop in scheme) {
+        result += typeof(prop) + " " + prop + "\n";
+//      	a=back_color.replace("0x","");
+        if (prop.includes("color")){
+        a = scheme[prop].replace("0x","");
 	a= a[4]+a[5]+a[2]+a[3]+a[0]+a[1];
-	back_color=a.toLowerCase();
-      changeColor('box','bg','back',back_color);
+        scheme[prop] = a.toLowerCase();
+        }
+        result += scheme[prop] + "\n";
+      }
+      console.log(result);
+//	back_color=a.toLowerCase();
+//  console.dir(scheme);      
+//      changeColor('box','bg','back',back_color);
     }
     reader.readAsText(f);
 
