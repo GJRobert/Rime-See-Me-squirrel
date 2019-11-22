@@ -199,12 +199,14 @@
 //          document.getElementById('list').innerHTML = '<ul>' + output + '</ul>';
 //      console.dir(output);
       var scheme = output[Object.keys(output)[0]];
-console.log(scheme.name);
+//console.log(scheme.name);
+      console.dir(scheme);
 //      var back_color = scheme.back_color;
 //      var result = "";
       for (var prop in scheme) {
 //        result += typeof(prop) + " " + prop + "\n";
 //      	a=back_color.replace("0x","");
+        if (scheme[prop] === "") scheme[prop] = ' ' //continue;
         if (prop.includes("color")){
         a = scheme[prop].replace("0x","");
 	a= a[4]+a[5]+a[2]+a[3]+a[0]+a[1];
