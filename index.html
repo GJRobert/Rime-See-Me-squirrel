@@ -200,6 +200,11 @@
       console.dir(output);
       var scheme = output[Object.keys(output)[0]];
 console.log(scheme.name);
+      var back_color = scheme.back_color;
+      	a=back_color.replace("0x","");
+	a= a[4]+a[5]+a[2]+a[3]+a[0]+a[1];
+	back_color=a.toLowerCase();
+      changeColor('box','bg','back',back_color);
     }
     reader.readAsText(f);
 
