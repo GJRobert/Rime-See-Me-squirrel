@@ -89,6 +89,7 @@
               <fieldset> <legend>小視窗設定</legend> <span>背景</span><input
                   class="color {pickerPosition:'left'}"
                   name="back"
+                  id="back"
                   value="FFFFFF"
                   onchange="changeColor('box','bg',this.name,this.color);"
                   type="text">
@@ -176,12 +177,12 @@
     <div>支援瀏覽器：Chrome 內核（Chrome、Vivaldi、……）或 Firefox 68、Waterfox 56 等（其餘瀏覽器可能也可正常運作，<a
         href="https://github.com/GJRobert/Rime-See-Me-squirrel/issues/1"
         target="_blank">歡迎回報</a>）</div>
-    <!--工作區--> <div>選取已儲存之 YAML 主題設定檔<sup>*</sup>並載入：<input id="files" name="files[]" multiple=""
-      type="file"> <output
-      id="list"></output>
-    <p>
-      *&nbsp;因程式功能所限，主題設定檔須符合一定格式。
-    </p>
+    <!--工作區-->
+    <div>選取已儲存之 YAML 主題設定檔<sup>*</sup>並載入：<input id="files" name="files[]"
+        multiple=""
+        type="file"> <output
+        id="list"></output>
+      <p> *&nbsp;因程式功能所限，主題設定檔須符合一定格式。 </p>
     </div>
     <script>
   function handleFileSelect(evt) {
@@ -235,6 +236,8 @@ changeColor('text','c','text',scheme.text_color);
       for(i=2;i<=9;i++) document.getElementById('n'+i).style.color = '#'+scheme.candidate_text_color;exConvert('candidate_text',scheme.candidate_text_color); changeColor('cursor','c','candidate_text',scheme.candidate_text_color);
 for(i=2;i<=9;i++) document.getElementById('label'+i).style.color = '#'+scheme.label_color;exConvert('label',scheme.label_color);
 for(i=2;i<=9;i++) document.getElementById('code'+i).style.color = '#'+scheme.comment_text_color;exConvert('comment_text',scheme.comment_text_color);
+    document.getElementById('back').style.backgroundColor = '#'+scheme.back_color;
+	document.getElementById('back').value=scheme.back_color.toUpperCase();
     }
     reader.readAsText(f);
 
