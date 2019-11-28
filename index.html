@@ -44,14 +44,17 @@
             <form>
               <fieldset> <legend>基本資訊</legend> <span>代<span class="em"></span>號</span><input
                   name="schema"
+                  id="schema_input"
                   value="example"
                   onchange="writeIn(this.name,this.value+':');"
                   type="text"><br>
                 <span>名<span class="em"></span>稱</span><input name="name"
+                  id="name_input"
                   value="名字"
                   onchange="writeIn(this.name,this.value);"
                   type="text"><br>
                 <span>作<span class="em"></span>者</span><input name="author"
+                  id="author_input"
                   value="作者"
                   onchange="writeIn(this.name,this.value);"
                   type="text"><br>
@@ -262,6 +265,12 @@ function handleFileSelect(evt) {
                 document.getElementById(id).value = scheme[prop].toUpperCase();
             }
         }
+        writeIn("name",scheme.name);
+        document.getElementById("name_input").value = scheme.name;
+        //schema.author = schema.author.replace("<","&lt;");
+        //schema.author = schema.author.replace(">","&gt;");
+        writeIn("author",scheme.author);
+        document.getElementById("author_input").value = scheme.author;
     }
     reader.readAsText(f);
 
