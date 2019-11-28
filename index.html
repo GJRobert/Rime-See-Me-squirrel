@@ -195,9 +195,10 @@
         multiple=""
         type="file"> <output
         id="list"></output>
-      <p> *&nbsp;因程式功能所限，主題設定檔須符合一定格式。 </p>
+      <p> *&nbsp;因程式功能所限，主題設定檔須符合一定格式，詳見<a href="https://github.com/GJRobert/Rime-See-Me-squirrel/blob/master/README.md#%E6%96%B0%E5%8A%9F%E8%83%BD%E8%AE%80%E5%85%A5%E7%8F%BE%E6%9C%89%E4%B8%BB%E9%A1%8C%E8%A8%AD%E5%AE%9A%E6%AA%94"
+          target="_blank">說明</a>。 </p>
     </div>
-<script>
+    <script>
 function handleFileSelect(evt) {
     var files = evt.target.files; // FileList object
 
@@ -277,6 +278,6 @@ function handleFileSelect(evt) {
 }
 
 document.getElementById('files').addEventListener('change', handleFileSelect, false);
-</script>
+    </script>
   </body>
 </html>
