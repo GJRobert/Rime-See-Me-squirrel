@@ -2,7 +2,7 @@ function exConvert(name,color){
 	a=color.toString();
 	a= a[4]+a[5]+a[2]+a[3]+a[0]+a[1];
 	color=a.toUpperCase();
-	document.getElementById(name+'_color').innerHTML=color;}
+	document.getElementById(name+'_color').innerHTML='0x'+color;}
 function writeIn(name, value){
 	document.getElementById(name).innerHTML=value;}
 function changeNumber(value)
