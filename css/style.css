@@ -66,3 +66,5 @@ input[name="schema"], input[name="name"], input[name="author"]{border-bottom: 1p
 #schema{display: inline;}
 
 .em{display: inline-block;width: 1em;}
+
+#source_code{font-family: Operator Mono, monospace;}
