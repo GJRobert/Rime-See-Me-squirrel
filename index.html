@@ -39,6 +39,8 @@
                     id="code9">(pei)</span></div>
               </div>
             </div>
+            <br>
+            <div id="little_box"> <span id="tip">漢字&nbsp;&nbsp;汉字&nbsp;&nbsp;擴展&nbsp;&nbsp;A</span> </div>
           </td>
           <td id="style_setting">
             <form>
@@ -94,7 +96,7 @@
                   name="back"
                   id="back_input"
                   value="FFFFFF"
-                  onchange="changeColor('box','bg',this.name,this.color);"
+                  onchange="changeColor('box','bg',this.name,this.color);changeColor('little_box','bg',this.name,this.color);"
                   type="text">
                 <!--鼠鬚管沒有邊框--> </fieldset>
               <fieldset> <legend>組字區域</legend> <span>文字</span><input class="color {pickerPosition:'left'}"
@@ -145,8 +147,8 @@
                   name="candidate_text"
                   id="candidate_text_input"
                   value="000000"
-                  onchange="for(i=2;i<=9;i++) document.getElementById('n'+i).style.color = '#'+this.color;exConvert(this.name,this.color); changeColor('cursor','c',this.name,this.color);"
-                  type="text"><br>
+                  onchange="changeColor('cursor','c',this.name,this.color);for(i=2;i<=9;i++) document.getElementById('n'+i).style.color = '#'+this.color;exConvert(this.name,this.color);"
+                  type="text"><br><sub>（也會影響游標顏色）</sub><br>
                 <span>序號</span><input class="color {pickerPosition:'left'}"
                   name="label"
                   id="label_input"
@@ -157,8 +159,8 @@
                   name="comment_text"
                   id="comment_text_input"
                   value="DDDDDD"
-                  onchange="for(i=2;i<=9;i++) document.getElementById('code'+i).style.color = '#'+this.color;exConvert(this.name,this.color);"
-                  type="text"> </fieldset>
+                  onchange="changeColor('tip','c',this.name,this.color); for(i=2;i<=9;i++) document.getElementById('code'+i).style.color = '#'+this.color;exConvert(this.name,this.color);"
+                  type="text"><br><sub>（也會影響狀態 tooltip 顏色）</sub> </fieldset>
             </form>
           </td>
           <td id="code_generate">
@@ -239,6 +241,7 @@ function handleFileSelect(evt) {
         //  console.dir(scheme);      
         //      changeColor('box','bg','back',back_color);
         changeColor('box', 'bg', 'back', scheme.back_color);
+        changeColor('little_box', 'bg', 'back', scheme.back_color);
         changeColor('code1', 'c', 'hilited_comment_text', scheme.hilited_comment_text_color);
         changeColor('hilited', 'bg', 'hilited_back', scheme.hilited_back_color);
         changeColor('hilited', 'c', 'hilited_text', scheme.hilited_text_color);
@@ -246,6 +249,7 @@ function handleFileSelect(evt) {
         changeColor('n1', 'bg', 'hilited_candidate_back', scheme.hilited_candidate_back_color);
         changeColor('n1', 'c', 'hilited_candidate_text', scheme.hilited_candidate_text_color);
         changeColor('text', 'c', 'text', scheme.text_color);
+        changeColor('tip', 'c', 'comment_text', scheme.comment_text_color);
 
         for (i = 2; i <= 9; i++) document.getElementById('n' + i).style.color = '#' + scheme.candidate_text_color;
         exConvert('candidate_text', scheme.candidate_text_color);
